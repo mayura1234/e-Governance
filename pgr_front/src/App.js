@@ -1,0 +1,183 @@
+
+
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import Navbar from './layout/Navbar';
+import Home from './pages/Home';
+// import Rooutes from './Rooutes';
+import Login from './pages/login';
+import Signup from './pages/Signup';
+// import Contact from './pages/Contact';
+import { Routes, Route,Link } from 'react-router-dom';
+// function App() {
+//   return (
+//     <div className="App">
+//       {/* <Navbar /> */}
+//       <Router>
+//         <Routes>
+//         <Route path="/" element={<Home/>} />
+//         <Route path="/Login"  element={<Login/>} />
+//         <Route path="/Signup" element={<Signup/>} />
+//         <Route path="/Contact" element={<Contact />} />
+//         </Routes>
+//       {/* <Home /> */}
+//       </Router>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+import {Component} from 'react';
+import AuthService from "./services/auth_usr"; 
+import EventBus from "./common/EventBus";
+
+import BoardGRO from './pages/BoardGRO';
+import BoardRO from './pages/BoardRO';
+import BoardUSER from './pages/BoardUSER';
+
+// import GRO from './layout/GRO';
+// import RO from './layout/RO';
+// import USER from './layout/USER';
+
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.logOut = this.logOut.bind(this);
+
+    this.state = {
+      showRO: false,
+      showGRO: false,
+      currentUser: undefined,
+    };
+  }
+
+  componentDidMount() {
+    const user = AuthService.getCurrentUser();
+
+    if (user) {
+      this.setState({
+        currentUser: user,
+        showRO: user.roles.includes("ROLE_RO"),
+        showGRO: user.roles.includes("ROLE_GRO"),
+      });
+    }
+    
+    EventBus.on("logout", () => {
+      this.logOut();
+    });
+  }
+
+  componentWillUnmount() {
+    EventBus.remove("logout");
+  }
+
+  logOut() {
+    AuthService.logout();
+    this.setState({
+      showRO: false,
+      showGRO: false,
+      currentUser: undefined,
+    });
+  }
+
+  render() {
+    // const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
+    const { currentUser, showRO, showGRO } = this.state;
+
+    return (
+      <div>
+        <nav className="navbar navbar-expand navbar-dark bg-primary">
+          <Link to={"/"} className="navbar-brand">
+            Public Grievance Redressal
+          </Link>
+          <div className="navbar-nav mr-auto"> 
+            <li className="nav-item">
+              {/* <Link to={"/home"} className="nav-link">
+                Home
+              </Link>  */}
+             </li> 
+
+            {showRO && (
+              <li className="nav-item">
+                <Link to={"/RO"} className="nav-link">
+                  RO
+                </Link>
+              </li>
+            )}
+
+            {showGRO && (
+              <li className="nav-item">
+                <Link to={"/GRO"} className="nav-link">
+                  GRO
+                </Link>
+              </li>
+            )}
+
+            {currentUser && (
+              <li className="nav-item">
+                <Link to={"/USER"} className="nav-link">
+                  User
+                </Link>
+              </li>
+            )}
+          </div>
+
+          {currentUser ? (
+            <div className="navbar-nav ml-auto">
+              {/* <li className="nav-item">
+                <Link to={"/profile"} className="nav-link">
+                  {currentUser.username}
+                </Link>
+              </li> */}
+              <li className="nav-item">
+                <a href="/login" className="nav-link" onClick={this.logOut}>
+                  LogOut
+                </a>
+              </li>
+            </div>
+          ) : (
+            <div className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <Link to={"/login"} className="nav-link">
+                  Login
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <Link to={"/Signup"} className="nav-link">
+                  Sign Up
+                </Link>
+              </li>
+            </div>
+          )}
+        </nav>
+
+        <div className="container mt-3">
+        
+          <Routes>
+            {/* <Route path="/" element={<Home />} /> */}
+            {/* <Route path="/login" element={<Login />} />
+            <Route path="/Signup" element={<Signup />} /> */}
+            {/* <Route path="/profile" element={<Profile />} /> */}
+            <Route path="/USER" element={<BoardUSER />} />
+            <Route path="/RO" element={<BoardRO />} />
+            <Route path="/GRO" element={<BoardGRO />} />
+            <Route path="/" element={<Home/>} />
+            <Route path="/Login"  element={<Login/>} />
+            <Route path="/Signup" element={<Signup/>} />
+
+          </Routes>
+         
+        </div>
+
+        {/* <AuthVerify logOut={this.logOut}/> */}
+      </div>
+    );
+  }
+}
+
+export default App;
