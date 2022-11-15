@@ -104,7 +104,7 @@ class App extends Component {
             {showRO && (
               <li className="nav-item">
                 <Link to={"/RO"} className="nav-link">
-                  RO
+                  Redresser
                 </Link>
               </li>
             )}
@@ -112,7 +112,7 @@ class App extends Component {
             {showGRO && (
               <li className="nav-item">
                 <Link to={"/GRO"} className="nav-link">
-                  GRO
+                  Grievance Routing Officer
                 </Link>
               </li>
             )}
