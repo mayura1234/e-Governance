@@ -1,5 +1,9 @@
 package com.example.saaku.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 //import org.springframework.web.bind.annotation.CrossOrigin;
 //import org.springframework.web.bind.annotation.GetMapping;
 //import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,14 +45,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.saaku.model.User;
+import com.example.saaku.repository.UserRepository;
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/test")
 public class TestController {
-	@GetMapping("/all")
-	public String allAccess() {
-		return "Public Content.";
-	}
+//	@GetMapping("/all")
+//	public String allAccess() {
+//		return "Public Content.";
+//	}
+//	
+	
+	
+	@Autowired
+	private UserRepository userRepository;
+	 @GetMapping("/all")
+	   public List<User> getAllUsers(){
+	    	return userRepository.findAll();
+	    }
 	
 	@GetMapping("/USER")
 	@PreAuthorize("hasRole('USER') or hasRole('RO') or hasRole('GRO')")

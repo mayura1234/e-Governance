@@ -35,4 +35,3 @@ public class UserController {
     			.orElseThrow(()->new UserNotFoundException(user_id));
     }
 }
-
