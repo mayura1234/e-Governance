@@ -135,6 +135,18 @@ public class User {
 	@OneToMany(mappedBy="us")
 	private List<Complaints> complaints;
 	
+	
+	@OneToMany(mappedBy="uss")
+	private List<Status> status;
+	
+
+	public List<Status> getStatus() {
+		return status;
+	}
+
+	public void setStatus(List<Status> status) {
+		this.status = status;
+	}
 
 	public List<Complaints> getComplaints() {
 		return complaints;

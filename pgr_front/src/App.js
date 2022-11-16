@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Login from './pages/login';
 import Signup from './pages/Signup';
 // import Contact from './pages/Contact';
+// import './App.css';
 import { Routes, Route,Link } from 'react-router-dom';
 // function App() {
 //   return (
@@ -90,15 +91,16 @@ class App extends Component {
 
     return (
       <div>
-        <nav className="navbar navbar-expand navbar-dark bg-primary">
-          <Link to={"/"} className="navbar-brand">
-            Public Grievance Redressal
-          </Link>
-          <div className="navbar-nav mr-auto"> 
+        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+          {/* <Link to={"/"} className="navbar-brand">
+            PGR 
+          </Link> */}
+          <h2>PGR</h2>
+          <div className="navbar-nav ms-auto"> 
             <li className="nav-item">
-              {/* <Link to={"/home"} className="nav-link">
+              <Link to={"/"} className="nav-link">
                 Home
-              </Link>  */}
+              </Link> 
              </li> 
 
             {showRO && (
@@ -138,6 +140,7 @@ class App extends Component {
                   LogOut
                 </a>
               </li>
+            
             </div>
           ) : (
             <div className="navbar-nav ml-auto">
@@ -152,7 +155,9 @@ class App extends Component {
                   Sign Up
                 </Link>
               </li>
+              
             </div>
+            
           )}
         </nav>
 
