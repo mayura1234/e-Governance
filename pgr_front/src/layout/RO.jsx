@@ -3,7 +3,7 @@ import React from 'react'
 function RO() {
   return (
     <div>
-      ...
+      
     </div>
   )
 }

@@ -89,12 +89,17 @@ package com.example.saaku.model;
 
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+
+
+
 
 @Entity
 @Table(	name = "users", 
@@ -125,6 +130,31 @@ public class User {
 				joinColumns = @JoinColumn(name = "user_id"), 
 				inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
+	
+	
+	@OneToMany(mappedBy="us")
+	private List<Complaints> complaints;
+	
+	
+	@OneToMany(mappedBy="uss")
+	private List<Status> status;
+	
+
+	public List<Status> getStatus() {
+		return status;
+	}
+
+	public void setStatus(List<Status> status) {
+		this.status = status;
+	}
+
+	public List<Complaints> getComplaints() {
+		return complaints;
+	}
+
+	public void setComplaints(List<Complaints> complaints) {
+		this.complaints = complaints;
+	}
 
 	public User() {
 	}
@@ -134,7 +164,8 @@ public class User {
 		this.email = email;
 		this.password = password;
 	}
-
+	
+	
 	public Long getId() {
 		return id;
 	}

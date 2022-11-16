@@ -100,7 +100,7 @@ const required = value => {
   if (!value) {
     return (
       <div className="alert alert-danger" role="alert">
-        This field is required!
+       This field is required...
       </div>
     );
   }
@@ -173,6 +173,7 @@ class Login extends Component {
   render() {
     return (
       <div className="col-md-12">
+        <center><h2>LOGIN</h2></center>
         <div className="card card-container">
           {/* <img */}
              {/* src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" */}
@@ -187,7 +188,6 @@ class Login extends Component {
             }}
           >
             <div className="form-group">
-              <h2>LOGIN</h2>
               <label htmlFor="username">Username</label>
               <Input
                 type="text"
@@ -210,10 +210,10 @@ class Login extends Component {
                 validations={[required]}
               />
             </div> <br />
-
+            
             <div className="form-group">
               <button
-                className="btn btn-primary btn-block"
+                className="btn btn-success btn-block"
                 disabled={this.state.loading}
               >
                 {this.state.loading && (
@@ -221,7 +221,9 @@ class Login extends Component {
                 )}
                 <span>Login</span>
               </button>
+              
             </div>
+            
 
             {this.state.message && (
               <div className="form-group">

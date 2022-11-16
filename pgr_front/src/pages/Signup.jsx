@@ -231,6 +231,8 @@ export default class Signup extends Component {
   render() {
     return (
       <div className="col-md-12">
+        <br />
+        <center><h2>Register</h2></center>
         <div className="card card-container">
           {/* <img */}
             {/* src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" */}
@@ -243,7 +245,8 @@ export default class Signup extends Component {
             ref={c => {
               this.form = c;
             }}
-          >     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h2>SIGN UP</h2> <br /> 
+          >     
+          {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h2>SIGN UP</h2> <br />  */}
             {!this.state.successful && (
               <div>
                 <div className="form-group">
@@ -284,7 +287,7 @@ export default class Signup extends Component {
                             
                           <br />
                 <div className="form-group">
-                  <button className="btn btn-primary btn-block">Sign Up</button>
+                  <button className="btn btn-success btn-block">Sign Up</button>
                 </div>
               </div>
             )}
