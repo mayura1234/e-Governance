@@ -30,7 +30,7 @@ import { Routes, Route,Link } from 'react-router-dom';
 
 
 
-
+import Profile from './pages/profile_component';
 import {Component} from 'react';
 import AuthService from "./services/auth_usr"; 
 import EventBus from "./common/EventBus";
@@ -86,7 +86,7 @@ class App extends Component {
   }
 
   render() {
-    // const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
+    // const { currentUser, showModeratorBoard, showAdminBoard } = this.state;  
     const { currentUser, showRO, showGRO } = this.state;
 
     return (
@@ -103,18 +103,18 @@ class App extends Component {
               </Link> 
              </li> 
 
-            {showRO && (
+            {showGRO && (
               <li className="nav-item">
-                <Link to={"/RO"} className="nav-link">
+                <Link to={"/GRO"} className="nav-link">
                   Redresser
                 </Link>
               </li>
             )}
 
-            {showGRO && (
+            {showRO && (
               <li className="nav-item">
-                <Link to={"/GRO"} className="nav-link">
-                  Grievance Routing Officer
+                <Link to={"/RO"} className="nav-link">
+                  RO's
                 </Link>
               </li>
             )}
@@ -130,11 +130,12 @@ class App extends Component {
 
           {currentUser ? (
             <div className="navbar-nav ml-auto">
-              {/* <li className="nav-item">
+              <li className="nav-item">
                 <Link to={"/profile"} className="nav-link">
-                  {currentUser.username}
+                  {/* {currentUser.username} */}
+                  Profile
                 </Link>
-              </li> */}
+              </li>
               <li className="nav-item">
                 <a href="/login" className="nav-link" onClick={this.logOut}>
                   LogOut
@@ -167,7 +168,7 @@ class App extends Component {
             {/* <Route path="/" element={<Home />} /> */}
             {/* <Route path="/login" element={<Login />} />
             <Route path="/Signup" element={<Signup />} /> */}
-            {/* <Route path="/profile" element={<Profile />} /> */}
+            <Route path="/profile" element={<Profile />} />
             <Route path="/USER" element={<BoardUSER />} />
             <Route path="/RO" element={<BoardRO />} />
             <Route path="/GRO" element={<BoardGRO />} />
