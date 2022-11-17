@@ -46,6 +46,7 @@ export default class BoardUSER extends Component {
 
 <div className='container'>
              <div className='py-4'>
+              <h2>All the users....</h2><br />
              <table className="table border shadow">
                 <thead>
                   <tr>

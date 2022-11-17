@@ -1,5 +1,7 @@
 package com.example.saaku.repository;
 
+import java.util.Optional;
+
 //import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,6 +12,6 @@ import com.example.saaku.model.Complaints;
 
 @Repository
 public interface ComplaintRepository extends JpaRepository<Complaints ,Long>{
-//	Optional<Complaints>findById(User id);
+	Optional<Complaints>findById(Complaints id);
 
 }

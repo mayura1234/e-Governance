@@ -39,6 +39,8 @@ import BoardGRO from './pages/BoardGRO';
 import BoardRO from './pages/BoardRO';
 import BoardUSER from './pages/BoardUSER';
 
+import Complaints from './Complaints';
+
 // import GRO from './layout/GRO';
 // import RO from './layout/RO';
 // import USER from './layout/USER';
@@ -62,6 +64,7 @@ class App extends Component {
     if (user) {
       this.setState({
         currentUser: user,
+        // showUSER:user.roles.includes("ROLE_USER"),
         showRO: user.roles.includes("ROLE_RO"),
         showGRO: user.roles.includes("ROLE_GRO"),
       });
@@ -81,6 +84,7 @@ class App extends Component {
     this.setState({
       showRO: false,
       showGRO: false,
+      // showUSER: false,
       currentUser: undefined,
     });
   }
@@ -103,29 +107,51 @@ class App extends Component {
               </Link> 
              </li> 
 
-            {showGRO && (
+            {showRO && (
               <li className="nav-item">
-                <Link to={"/GRO"} className="nav-link">
+                <Link to={"/USER"} className="nav-link">
                   Redresser
                 </Link>
               </li>
             )}
 
-            {showRO && (
+            {showGRO && (
               <li className="nav-item">
-                <Link to={"/RO"} className="nav-link">
-                  RO's
+                <Link to={"/USER"} className="nav-link">
+                  Users
                 </Link>
               </li>
             )}
 
-            {currentUser && (
-              <li className="nav-item">
-                <Link to={"/USER"} className="nav-link">
-                  User
+
+            {showGRO && (
+              <li className='nav-item'>
+                <Link to={"/Complaints"} className="nav-link">
+                  Complaints
                 </Link>
               </li>
             )}
+
+
+            {/* {showUSER && (
+              <li className='nav-item'>
+                <Link to={"/AddCom"}>
+                  ADD Complaint
+                </Link>
+                </li>
+               
+            )} */}
+
+
+
+{/*         
+            {currentUser && (
+              <li className="nav-item">
+                <Link to={"/USER"} className="nav-link">
+                   Users
+                </Link>
+              </li>
+            )} */}
           </div>
 
           {currentUser ? (
@@ -175,6 +201,7 @@ class App extends Component {
             <Route path="/" element={<Home/>} />
             <Route path="/Login"  element={<Login/>} />
             <Route path="/Signup" element={<Signup/>} />
+            <Route path='/Complaints' element={<Complaints />} />
 
           </Routes>
          
