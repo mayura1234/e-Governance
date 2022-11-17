@@ -8,7 +8,7 @@ export default class BoardUSER extends Component {
     super(props);
 
     this.state = {
-      content: ""
+      contents: []
     };
   }
 
@@ -16,7 +16,7 @@ export default class BoardUSER extends Component {
     UserService.getUserBoard().then(
       response => {
         this.setState({
-          content: response.data
+          contents: response.data
         });
       },
       error => {
@@ -38,11 +38,46 @@ export default class BoardUSER extends Component {
 
   render() {
     return (
-      <div className="container">
-        <header className="jumbotron">
-          <h3>{this.state.content}</h3>
-        </header>
-      </div>
+      // <div className="container">
+      //   <header className="jumbotron">
+      //     <h3>{this.state.content}</h3>
+      //   </header>
+      // </div>
+
+<div className='container'>
+             <div className='py-4'>
+             <table className="table border shadow">
+                <thead>
+                  <tr>
+                  <th scope="col">ID</th>
+                  {/* <th scope="col">Name</th> */}
+                  {/* <th scope="col">Password</th> */}
+                <th scope="col">Email</th>
+                  <th scope="col">UserName</th>
+                 </tr>
+              </thead>
+              <tbody>
+      
+                 {
+                this.state.contents.map((Contents,index)=>{
+                  return(
+                   <tr>
+                <th scope="row" key={index}>{index+1}</th>
+                {/* <td>{Content.user_name}</td> */}
+                {/* <td>{Content.passwd}</td> */}
+                <td>{Contents.email}</td>
+                <td>{Contents.username}</td>
+                </tr>
+                  )
+                
+            })
+            }
+              </tbody>
+           </table>
+             </div>
+          
+        </div>
+
     );
   }
 }

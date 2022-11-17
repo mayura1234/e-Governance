@@ -8,7 +8,7 @@ export default class BoardGRO extends Component {
     super(props);
 
     this.state = {
-      content: ""
+      content:""
     };
   }
 
@@ -43,6 +43,10 @@ export default class BoardGRO extends Component {
           <h3>{this.state.content}</h3>
         </header>
       </div>
+
+
+
+      
     );
   }
 }
