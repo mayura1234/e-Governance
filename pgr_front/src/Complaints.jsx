@@ -1,6 +1,7 @@
 import React from 'react'
 import {useEffect,useState}from 'react';
 import axios from 'axios';
+// import UserService from './services/user-service';
 function Complaints() {
      // const cors =require('cors');
      const [complaints,setComplaints]=useState([])
@@ -29,7 +30,7 @@ function Complaints() {
                 <thead>
                   <tr>
                   <th scope="col">ID</th>
-                  <th scope="col">Descri</th>
+                  <th scope="col">descri</th>
                   <th scope="col">date</th>
                 <th scope="col">loct</th>
                   <th scope="col">us_id</th>
@@ -38,14 +39,14 @@ function Complaints() {
               <tbody>
       
                  {
-                complaints.map((Contents,index)=>{
+                complaints.map((Contentss,index)=>{
                   return(
                    <tr>
                 <th scope="row" key={index}>{index+1}</th>
-                <td>{Contents.descri}</td>
-                <td>{Contents.dte}</td>
-                <td>{Contents.loct}</td>
-                <td>{Contents.us_id}</td>
+                <td>{Contentss.descri}</td>
+                <td>{Contentss.dte}</td>
+                <td>{Contentss.loct}</td>
+                <td>{Contentss.us_id}</td>
                 </tr>
                   )
                 

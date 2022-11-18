@@ -43,6 +43,12 @@ public class Complaints {
 	private Blob imag;
 	
 	private String loct;
+	
+	
+
+	public Complaints() {
+		super();
+	}
 
 	public Complaints(Long id, User us, String descri, Date dte, Blob imag, String loct) {
 		super();
