@@ -40,6 +40,7 @@ import BoardRO from './pages/BoardRO';
 import BoardUSER from './pages/BoardUSER';
 
 import Complaints from './Complaints';
+import AddCom from './AddCom';
 
 // import GRO from './layout/GRO';
 // import RO from './layout/RO';
@@ -52,6 +53,7 @@ class App extends Component {
     this.logOut = this.logOut.bind(this);
 
     this.state = {
+      showUSER: false,
       showRO: false,
       showGRO: false,
       currentUser: undefined,
@@ -64,7 +66,7 @@ class App extends Component {
     if (user) {
       this.setState({
         currentUser: user,
-        // showUSER:user.roles.includes("ROLE_USER"),
+        showUSER:user.roles.includes("ROLE_USER"),
         showRO: user.roles.includes("ROLE_RO"),
         showGRO: user.roles.includes("ROLE_GRO"),
       });
@@ -84,14 +86,14 @@ class App extends Component {
     this.setState({
       showRO: false,
       showGRO: false,
-      // showUSER: false,
+      showUSER: false,
       currentUser: undefined,
     });
   }
 
   render() {
     // const { currentUser, showModeratorBoard, showAdminBoard } = this.state;  
-    const { currentUser, showRO, showGRO } = this.state;
+    const { currentUser, showRO, showGRO,showUSER } = this.state;
 
     return (
       <div>
@@ -109,8 +111,8 @@ class App extends Component {
 
             {showRO && (
               <li className="nav-item">
-                <Link to={"/USER"} className="nav-link">
-                  Redresser
+                <Link to={"/Complaints"} className="nav-link">
+                 Complaints
                 </Link>
               </li>
             )}
@@ -133,14 +135,14 @@ class App extends Component {
             )}
 
 
-            {/* {showUSER && (
+            {showUSER && (
               <li className='nav-item'>
-                <Link to={"/AddCom"}>
+                <Link to={"/AddCom"} className="nav-link">
                   ADD Complaint
                 </Link>
                 </li>
                
-            )} */}
+            )}
 
 
 
@@ -202,6 +204,7 @@ class App extends Component {
             <Route path="/Login"  element={<Login/>} />
             <Route path="/Signup" element={<Signup/>} />
             <Route path='/Complaints' element={<Complaints />} />
+            <Route path="/AddCom" element={<AddCom/>} />
 
           </Routes>
          

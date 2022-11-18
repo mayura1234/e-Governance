@@ -13,5 +13,4 @@ import com.example.saaku.model.Complaints;
 @Repository
 public interface ComplaintRepository extends JpaRepository<Complaints ,Long>{
 	Optional<Complaints>findById(Complaints id);
-
 }
