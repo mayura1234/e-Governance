@@ -47,7 +47,7 @@ public class Complaints {
 	
 
 	public Complaints() {
-		super();
+//		super();
 	}
 
 	public Complaints(Long id, User us, String descri, Date dte, Blob imag, String loct) {
