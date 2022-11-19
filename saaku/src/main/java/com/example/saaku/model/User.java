@@ -1,5 +1,7 @@
 package com.example.saaku.model;
 
+import java.io.Serializable;
+
 //import java.util.HashSet;
 //import javax.persistence.*;
 //import java.util.Set;
@@ -107,6 +109,7 @@ import javax.validation.constraints.Size;
 			@UniqueConstraint(columnNames = "username"),
 			@UniqueConstraint(columnNames = "email") 
 		})
+	
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

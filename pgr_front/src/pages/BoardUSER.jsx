@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+// import axios from 'axios';
+// import {useEffect,useState}from 'react';
 import UserService from "../services/user-service";
 import EventBus from "../common/EventBus";
 
@@ -37,6 +38,29 @@ export default class BoardUSER extends Component {
   }
 
   render() {
+
+
+
+
+  // function BoardUSER() {
+ 
+  //   const [content,setUsers]=useState([])
+
+  //   useEffect(()=>{
+  //       loadUsers();
+  //   }, []);
+   
+    
+  //   const loadUsers = async () => {
+  //       const result = await axios.get("http://localhost:8081/api/test/").then(
+  //           Response=>{
+  //               console.log(Response.data);
+  //           }
+  //       );
+  //    setUsers(result.data);
+  //   };
+
+
     return (
       // <div className="container">
       //   <header className="jumbotron">
@@ -81,4 +105,6 @@ export default class BoardUSER extends Component {
 
     );
   }
+
 }
+
