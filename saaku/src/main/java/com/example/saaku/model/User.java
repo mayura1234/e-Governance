@@ -135,29 +135,29 @@ public class User {
 	private Set<Role> roles = new HashSet<>();
 	
 	
-	@OneToMany(mappedBy="us")
-	private List<Complaints> complaints;
+//	@OneToMany(mappedBy="us")
+//	private List<Complaints> complaints;
 	
 	
-	@OneToMany(mappedBy="uss")
-	private List<Status> status;
+//	@OneToMany(mappedBy="uss")
+//	private List<Status> status;
 	
 
-	public List<Status> getStatus() {
-		return status;
-	}
+//	public List<Status> getStatus() {
+//		return status;
+//	}
 
-	public void setStatus(List<Status> status) {
-		this.status = status;
-	}
-
-	public List<Complaints> getComplaints() {
-		return complaints;
-	}
-
-	public void setComplaints(List<Complaints> complaints) {
-		this.complaints = complaints;
-	}
+//	public void setStatus(List<Status> status) {
+//		this.status = status;
+//	}
+//
+//	public List<Complaints> getComplaints() {
+//		return complaints;
+//	}
+//
+//	public void setComplaints(List<Complaints> complaints) {
+//		this.complaints = complaints;
+//	}
 
 	public User() {
 	}

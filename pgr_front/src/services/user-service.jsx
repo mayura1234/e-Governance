@@ -19,6 +19,9 @@ class UserService {
   getGROBoard() {
     return axios.get(API_URL + 'GRO', { headers: authHeader() });
   }
+  getComplaints(){
+    return axios.get(API_URL + 'Complaints', { headers : authHeader() });
+  }
 }
 
 export default new UserService();

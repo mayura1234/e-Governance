@@ -45,7 +45,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.saaku.model.Complaints;
 import com.example.saaku.model.User;
+import com.example.saaku.repository.ComplaintRepository;
 import com.example.saaku.repository.UserRepository;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -60,7 +62,8 @@ public class TestController {
 		return "Public Content.";
 	}
 //	
-	
+	@Autowired
+	private ComplaintRepository complaintRepository;	
 //	
 //	@Autowired
 //	private UserRepository userRepository;
@@ -90,10 +93,15 @@ public class TestController {
 	public String GROAccess() {
 		return "Router.";
 	
+	}
+		
+	@GetMapping("/Complaints")
+	@PreAuthorize("hasRole('GRO')or hasRole('RO')")
+	public List <Complaints> getAllComplaints(){
+		return complaintRepository.findAll();
+	}
 	
-//	@GetMapping("/GRO")
-//	@PreAuthorize("hasRole('GRO')")
 	
 	
 	}
-}
+
