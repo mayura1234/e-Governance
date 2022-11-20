@@ -75,10 +75,11 @@ export default class BoardUSER extends Component {
                 <thead>
                   <tr>
                   <th scope="col">ID</th>
-                  {/* <th scope="col">Name</th> */}
                   {/* <th scope="col">Password</th> */}
                 <th scope="col">Email</th>
-                  <th scope="col">UserName</th>
+                <th scope="col">Name</th>
+
+                  {/* <th scope="col">UserName</th> */}
                  </tr>
               </thead>
               <tbody>
@@ -88,8 +89,8 @@ export default class BoardUSER extends Component {
                   return(
                    <tr>
                 <th scope="row" key={index}>{index+1}</th>
-                {/* <td>{Content.user_name}</td> */}
-                {/* <td>{Content.passwd}</td> */}
+                {/* <td>{Contents.user_name}</td> */}
+                {/* <td>{Contents.passwd}</td> */}
                 <td>{Contents.email}</td>
                 <td>{Contents.username}</td>
                 </tr>

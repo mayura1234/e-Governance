@@ -25,7 +25,7 @@ public class ComplaintController {
 		return complaintRepository.findAll();
 	}
 	
-	@PostMapping("/complaints")
+	@PostMapping("/addCom")
 	Complaints newComplaint(@RequestBody Complaints newComplaint) {
     	return complaintRepository.save(newComplaint);
     }

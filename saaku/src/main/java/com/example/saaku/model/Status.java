@@ -29,6 +29,11 @@ public class Status {
 	
 	private String feedback;
 
+	public Status() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Status(Long id, String sts, Date stdate, Complaints com, User uss, String feedback) {
 		super();
 		this.id = id;
