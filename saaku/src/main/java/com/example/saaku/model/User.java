@@ -1,6 +1,6 @@
 package com.example.saaku.model;
 
-import java.io.Serializable;
+
 
 //import java.util.HashSet;
 //import javax.persistence.*;

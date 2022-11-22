@@ -22,6 +22,9 @@ class UserService {
   getComplaints(){
     return axios.get(API_URL + 'Complaints', { headers : authHeader() });
   }
+  postAddCom(){
+    return axios.post(API_URL + 'AddCom', {headers: authHeader() });
+  }
 }
 
 export default new UserService();

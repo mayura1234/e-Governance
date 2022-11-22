@@ -90,6 +90,7 @@ import com.example.saaku.security.services.UserDetailsServiceImpl;
 		prePostEnabled = true)
 public class WebSecurityConfig {
 //extends WebSecurityConfigurerAdapter {
+	
 	@Autowired
 	UserDetailsServiceImpl userDetailsService;
 
