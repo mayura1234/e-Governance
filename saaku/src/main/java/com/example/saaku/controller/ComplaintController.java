@@ -14,7 +14,7 @@ import com.example.saaku.model.Complaints;
 import com.example.saaku.repository.ComplaintRepository;
 
 @RestController
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class ComplaintController {
 
 	@Autowired
@@ -24,7 +24,7 @@ public class ComplaintController {
 	List<Complaints> getAllComplaints(){
 		return complaintRepository.findAll();
 	}
-	
+
 	@PostMapping("/addCom")
 	Complaints newComplaint(@RequestBody Complaints newComplaint) {
     	return complaintRepository.save(newComplaint);
