@@ -230,7 +230,7 @@ export default class AddCom extends Component {
   handleComplaints(e) {
     e.preventDefault();
 
-    this.setState({
+    this.setState=({
       message: "",
       successful: false
     });
