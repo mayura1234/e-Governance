@@ -146,6 +146,7 @@ import com.example.saaku.payload.request.SignupRequest;
 import com.example.saaku.payload.response.JwtResponse;
 import com.example.saaku.payload.response.MessageResponse;
 import com.example.saaku.repository.UserRepository;
+import com.example.saaku.repository.ComplaintRepository;
 import com.example.saaku.repository.RoleRepository;
 import com.example.saaku.security.jwt.JwtUtils;
 import com.example.saaku.security.services.UserDetailsImpl;
@@ -170,6 +171,8 @@ public class AuthController {
 
 	@Autowired
 	JwtUtils jwtUtils;
+	
+	
 
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
