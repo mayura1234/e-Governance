@@ -194,10 +194,13 @@ export default class Signup extends Component {
 
     this.setState({
       message: "",
-      successful: false
+      successful: false,
+      submit:true
     });
 
     this.form.validateAll();
+
+    
 
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.register(

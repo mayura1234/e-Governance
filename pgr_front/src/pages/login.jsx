@@ -1,5 +1,5 @@
 // import React, { useEffect,useState} from 'react';
-import './login.css';
+
 // import {Link,useNavigate} from 'react-router-dom';
 // function Login()
 // {
@@ -93,7 +93,7 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import AuthService from "../services/auth_usr";
-
+import './login.css';
 import { withRouter } from '../common/with-router';
 
 const required = value => {
